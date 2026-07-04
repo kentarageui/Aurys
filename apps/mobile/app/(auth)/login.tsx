@@ -101,9 +101,6 @@ export default function LoginScreen() {
       username: params.username ?? "",
       password: "",
     },
-    validators: {
-      onChange: loginSchema,
-    },
     onSubmit: async ({ value }) => {
       try {
         const trimmedUrl = SERVER_URL;
