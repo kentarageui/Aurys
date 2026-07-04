@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Aurys",
-    "slug": "aurys",
+    "slug": "aurys-x2em5d1ppp9cwk1zutjzy",
     "version": "1.0.7",
     "orientation": "default",
     "icon": "./assets/images/splash-icon-dark.png",
@@ -134,7 +134,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "23218046-7b95-488f-bce3-ca4c2f3063c8"
+        "projectId": "aurys-x2em5d1ppp9cwk1zutjzy"
       }
     },
     "owner": "kentarages-team-aurys"
