@@ -330,7 +330,7 @@ export default function LoginScreen() {
             {(isSubmitting) => (
               <FadeOutScaleDown
                 onPress={() => {
-                  if (form.state.isDirty) form.handleSubmit();
+                  form.handleSubmit();
                 }}
                 disabled={isSubmitting}
                 className="items-center justify-center py-3 px-8 border border-emerald-500 bg-emerald-500 rounded-full ml-4 mt-4"
