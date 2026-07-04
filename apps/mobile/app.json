@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Wavio",
-    "slug": "wavio",
+    "name": "Aurys",
+    "slug": "aurys",
     "version": "1.0.7",
     "orientation": "default",
     "icon": "./assets/images/splash-icon-dark.png",
-    "scheme": "wavio",
+    "scheme": "aurys",
     "userInterfaceStyle": "automatic",
     "backgroundColor": "#000000",
     "ios": {
@@ -13,7 +13,9 @@
       "supportsTablet": true,
       "requireFullScreen": true,
       "infoPlist": {
-        "UIBackgroundModes": ["audio"]
+        "UIBackgroundModes": [
+          "audio"
+        ]
       },
       "icon": {
         "dark": "./assets/images/ios-dark.png",
@@ -26,8 +28,10 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#000000"
       },
-      "package": "com.jmercier.wavio",
-      "permissions": ["android.permission.WAKE_LOCK"]
+      "package": "com.kentarage.aurys",
+      "permissions": [
+        "android.permission.WAKE_LOCK"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -69,7 +73,9 @@
           "photosPermission": "Allow $(PRODUCT_NAME) to access your files.",
           "savePhotosPermission": "Allow $(PRODUCT_NAME) to save files.",
           "isAccessMediaLocationEnabled": true,
-          "granularPermissions": ["audio"]
+          "granularPermissions": [
+            "audio"
+          ]
         }
       ],
       [
@@ -128,9 +134,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "6ae6a279-7d36-49e3-af38-fb5d007e3826"
+        "projectId": ""
       }
     },
-    "owner": "jmercier"
+    "owner": "Kentarage"
   }
 }
