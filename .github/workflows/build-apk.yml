@@ -20,20 +20,34 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
 
       - name: Install dependencies
         run: bun install
-        working-directory: .
 
-      - name: Setup Expo
-        uses: expo/expo-github-action@v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
+      - name: Install Expo CLI
+        run: bun add -g expo-cli @expo/cli eas-cli
 
-      - name: Build APK
-        run: eas build --platform android --profile preview --non-interactive --no-wait
+      - name: Prebuild Android
+        run: bunx expo prebuild --platform android --clean
         working-directory: apps/mobile
         env:
-          EXPO_ROBOT_ACCESS_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_PUBLIC_OPENSUBSONIC_API_VERSION: "1.16.1"
+          EXPO_PUBLIC_CLIENT_NAME: "aurys"
+          EXPO_PUBLIC_ENV: "preview"
+
+      - name: Build APK with Gradle
+        run: ./gradlew assembleRelease --no-daemon
+        working-directory: apps/mobile/android
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: aurys-release.apk
+          path: apps/mobile/android/app/build/outputs/apk/release/*.apk
