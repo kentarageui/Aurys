@@ -35,3 +35,5 @@ jobs:
       - name: Build APK
         run: eas build --platform android --profile preview --non-interactive --no-wait
         working-directory: apps/mobile
+        env:
+          EXPO_ROBOT_ACCESS_TOKEN: ${{ secrets.EXPO_TOKEN }}
