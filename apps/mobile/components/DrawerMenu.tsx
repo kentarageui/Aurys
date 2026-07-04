@@ -282,18 +282,6 @@ export default function DrawerMenu({ showDrawer, onClose }: DrawerMenuProps) {
                   {t("app.shared.sidebar.libraries")}
                 </Heading>
               </Pressable>
-              <Pressable
-                className={cn(
-                  "flex-row items-center border-primary-500 gap-x-4 rounded-md active:bg-primary-800",
-                  isWideLayout ? "mx-1 my-0.5 px-4 py-2.5" : "m-1 p-4",
-                )}
-                onPress={handleServersPress}
-              >
-                <Server size={24} color={white} />
-                <Heading size="lg" className="text-white font-normal">
-                  {t("app.shared.sidebar.servers")}
-                </Heading>
-              </Pressable>
               {capabilities.sharing && (
                 <Pressable
                   className={cn(
