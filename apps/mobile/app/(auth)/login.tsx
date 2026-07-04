@@ -50,6 +50,7 @@ import useAuth, { loginSchema } from "@/stores/auth";
 import useServers from "@/stores/servers";
 
 const SERVER_TYPE = "navidrome" as const;
+const SERVER_URL = "https://aurys.online";
 
 export default function LoginScreen() {
   const [white, primary800] = Uniwind.getCSSVariable([
@@ -99,14 +100,13 @@ export default function LoginScreen() {
     defaultValues: {
       username: params.username ?? "",
       password: "",
-      url: preselectedServer?.url ?? "https://",
     },
     validators: {
       onChange: loginSchema,
     },
     onSubmit: async ({ value }) => {
       try {
-        const trimmedUrl = value.url.trim();
+        const trimmedUrl = SERVER_URL;
         const trimmedUsername = value.username.trim();
         const trimmedPassword = value.password.trim();
 
@@ -211,28 +211,6 @@ export default function LoginScreen() {
           <Heading size="2xl" className="text-white font-bold mb-6">
             {t("auth.login.title")}
           </Heading>
-
-          <form.Field name="url">
-            {(field) => (
-              <FormControl
-                isInvalid={showFieldError(field)}
-                isDisabled={false}
-                isReadOnly={false}
-                isRequired={false}
-                className="mb-2 mt-0"
-              >
-                <Input className="border border-primary-600 bg-primary-600 data-[focus=true]:border-emerald-500 data-[invalid=true]:border-red-500 rounded-md px-6 py-2">
-                  <UrlInputField
-                    value={field.state.value}
-                    onChangeText={field.handleChange}
-                    onBlur={() => handleFieldBlur(field)}
-                    placeholder={t("auth.login.urlPlaceholder")}
-                  />
-                </Input>
-                <FieldError field={field} />
-              </FormControl>
-            )}
-          </form.Field>
 
           <form.Field name="username">
             {(field) => (
