@@ -40,6 +40,12 @@ jobs:
           EXPO_PUBLIC_ENV: "preview"
 
       - name: Build APK with Gradle
+        run: ./gradlew assembleRelease --no-daemon 2>&1 | grep -A5 "e:.*\.kt\|error:" | head -50 || true
+        working-directory: apps/mobile/android
+        env:
+          SENTRY_DISABLE_AUTO_UPLOAD: "true"
+
+      - name: Build APK with Gradle (full)
         run: ./gradlew assembleRelease --no-daemon
         working-directory: apps/mobile/android
         env:
