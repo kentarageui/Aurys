@@ -408,13 +408,7 @@ export default function PlayerScreen() {
           <VStack className="items-center flex-1 mx-2">
             {showSource && source ? (
               <>
-                <Text
-                  className="text-white/70 text-[11px] font-medium uppercase tracking-wider"
-                  numberOfLines={1}
-                  style={headerTextShadow}
-                >
-                  {t(`app.player.playingFrom.${source.type}`)}
-                </Text>
+
                 <FadeOut
                   onPress={() => {
                     if (sourceHref) router.replace(sourceHref);

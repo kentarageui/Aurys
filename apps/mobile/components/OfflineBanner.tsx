@@ -55,15 +55,9 @@ export default function OfflineBanner() {
       ]}
     >
       <HStack space="xs" className="items-center justify-center">
-        {isDeviceOnline ? (
-          <ServerOff color="white" size={14} />
-        ) : (
-          <WifiOff color="white" size={14} />
-        )}
+        <WifiOff color="white" size={14} />
         <Text className="text-white text-sm text-center">
-          {isDeviceOnline
-            ? t("app.offlineBanner.serverUnreachable")
-            : t("app.offlineBanner.noConnection")}
+          {t("app.offlineBanner.noConnection")}
         </Text>
       </HStack>
     </Animated.View>

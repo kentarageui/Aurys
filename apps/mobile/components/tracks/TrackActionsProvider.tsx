@@ -810,17 +810,7 @@ export function TrackActionsProvider({ children }: { children: ReactNode }) {
                     </Text>
                   </HStack>
                 </FadeOutScaleDown>
-                <FadeOutScaleDown
-                  onPress={handleDownloadPress}
-                  disabled={!isOnline}
-                >
-                  <HStack className="items-center">
-                    <Download size={24} color={gray200} />
-                    <Text className="ml-4 text-lg text-gray-200">
-                      {t("app.tracks.download")}
-                    </Text>
-                  </HStack>
-                </FadeOutScaleDown>
+
                 {capabilities.offlineDownload &&
                   !isTrackDownloading(track.id) &&
                   !isTrackDownloaded(track.id) && (
